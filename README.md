@@ -1,4 +1,4 @@
-# 0xDom
+# io.day
 Coming-Soon
 
-Free domains - dual.my
+Free domains - io.day
