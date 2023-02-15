@@ -1,9 +1,0 @@
-NS records:
-  - name: test
-    value: ns1.test.org
-  - name: test
-    value: ns2.test.org
-  - name: test
-    value: ns3.test.org
-  - name: test
-    value: ns4.test.org
