@@ -2,12 +2,13 @@
 
 # IO.DAY uses Cloudflare for DNS protection, which is enabled by default.
 # This means that SSL is supported and all traffic will be routed through Cloudflare's network.
-# However, if you choose to disable proxy (DNS ONLY), you'll need to provide your own SSL certificate and Cloudflare protection will be disabled.
+# Disabling the proxy (DNS only) will require providing your own SSL certificate and disable Cloudflare protection.
 
-# Access via HTTPS links (https://test.io.day)
-# KEY: The domain name you submitted when creating the subdomain (e.g. test means that the custom subdomain name is test.io.day).
-# VALUE: The URL that the subdomain is pointing to. For example, if you set the value to test.github.io,
-# the homepage of the user/organization will be displayed when you access the subdomain.
+# Access via HTTPS links (https://radio.io.day)
+# KEY: The subdomain name (e.g. radio for radio.io.day)
+# VALUE: The URL the subdomain points to (e.g. denniskidman.github.io)
+# We recommend using CNAME records for subdomains.
+# Please add your custom domain in this zone.
 
 # The list below is subdomain currently used.
 # We recommend you to use CNAME records.
@@ -20,11 +21,9 @@ CNAME records:
     value: denniskidman.github.io
     proxy: false
 
-# The list below is subdomain currently used.
-# If you don't know what NS record does, it is better to use CNAME.
-# Below shows the example of how to config a NS zone...
-# If you want to create four NS create four name,value,ttl like below.
-# Please add custom domain in this zone.
+# NS records are used to specify the authoritative name servers for the zone.
+# If you are unsure what NS records do, we recommend using CNAME records instead.
+# Please add your custom domain in this zone.
 NS records:
   - name: test
     value: ns1.test.org
@@ -39,7 +38,7 @@ NS records:
     value: ns4.test.org
     ttl: "14400"
 
-# The following are the reserved domain names, please do not modify
+# The following domain names are reserved and should not be modified.
 Reserved records:
   - name: www
   - name: ioday
