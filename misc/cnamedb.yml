@@ -1,0 +1,5 @@
+CNAME records:
+  - name: radio
+    value: denniskidman.github.io
+  - name: test
+    value: test.com
