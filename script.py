@@ -2,17 +2,17 @@ import CloudFlare
 import yaml
 
 # Load API Key from key.yml
-with open('key.yml') as file:
+with open('misc\key.yml') as file:
     api_data = yaml.safe_load(file)
     api_key = api_data['api_key']
     zone_id = api_data['zone_id']
 
 # Load CNAME DB Yaml file
-with open('db\cnamedb.yml') as file:
+with open('misc\cnamedb.yml') as file:
     cname_db_data = yaml.safe_load(file)
 
 # Load NS DB Yaml file
-with open('db\dbns.yml') as file:
+with open('misc\dbns.yml') as file:
     ns_db_data = yaml.safe_load(file)
 
 # Load Subdomain YAML file
@@ -47,7 +47,7 @@ for record in cname_records:
     # Check if the record already exists in the DB
     existing_record = None
     for record in cname_db_data.get(record_type + ' records', []):
-        if name == record['name'] and value == record['value']:
+        if name == record['name']:
             existing_record = record
             break
 
@@ -64,7 +64,7 @@ for record in cname_records:
     cname_db_data.setdefault(record_type + ' records', []
                              ).append({'name': name, 'value': value})
 
-    with open('db\cnamedb.yml', 'w') as file:
+    with open('misc\cnamedb.yml', 'w') as file:
         yaml.dump(cname_db_data, file)
 
     print(f"record {name} created successfully")
@@ -108,7 +108,7 @@ for record in ns_records:
     ns_db_data.setdefault(record_type + ' records', []
                           ).append({'name': name, 'value': value})
 
-    with open('db\dbns.yml', 'w') as file:
+    with open('misc\dbns.yml', 'w') as file:
         yaml.dump(ns_db_data, file)
 
     print(f"Record {name} created successfully")
