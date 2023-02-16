@@ -20,6 +20,9 @@ CNAME records:
   - name: radio
     value: denniskidman.github.io
     proxy: false
+  - name: cari-kata
+    value: cname.vercel-dns.com
+    proxy: true
 
 # NS records are used to specify the authoritative name servers for the zone.
 # If you are unsure what NS records do, we recommend using CNAME records instead.
